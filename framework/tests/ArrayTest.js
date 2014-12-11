@@ -1,120 +1,121 @@
 /**
- * @requires CR.dev.AbstractUnitTest
+ * @requires CR.dev.AbstractQUnitTest
  */
 
 /**
  * @class CR.tests.ArrayTest
  */
-CR.define('CR.tests.ArrayTest', 'CR.dev.AbstractUnitTest', {
-    _name: 'CR_Array',
-    testInsert: function(){
+CR.define('CR.tests.ArrayTest', 'CR.dev.AbstractQUnitTest', {
+    _name: 'CR.Array',
+    testInsert: function(assert){
         var me = this;
         // insert at the middle
         (function(){
             var a = ['a','b','c'];
             CR.Array.insert(a, 'x', 1);
-            me.arrayCompare('middle: target array '+a, a, ['a','x','b','c']);
+            assert.deepEqual(a, ['a','x','b','c'], 'middle: target array '+a);
         }());
         // insert at the begin
         (function(){
             var a = ['a','b','c'];
             CR.Array.insert(a, 'x', 0);
-            me.arrayCompare('middle: target array '+a, a, ['x','a','b','c']);
+            assert.deepEqual(a, ['x','a','b','c'], 'middle: target array '+a);
         }());
         // insert at the end
         (function(){
             var a = ['a','b','c'];
             CR.Array.insert(a, 'x', 3);
-            me.arrayCompare('middle: target array '+a, a, ['a','b','c','x']);
+            assert.deepEqual(a, ['a','b','c','x'], 'middle: target array '+a);
         }());
         // insert at the exceeding index
         (function(){
             var a = ['a','b','c'];
             CR.Array.insert(a, 'x', 10);
-            me.arrayCompare('middle: target array '+a, a, ['a','b','c','x']);
+            assert.deepEqual(a, ['a','b','c','x'], 'middle: target array '+a);
         }());
         // the index is not specified
         (function(){
             var a = ['a','b','c'];
             CR.Array.insert(a, 'x');
-            me.arrayCompare('middle: target array '+a, a, ['a','b','c','x']);
+            assert.deepEqual(a, ['a','b','c','x'], 'middle: target array '+a);
         }());
     },
-    testInsertArray: function(){
+    testInsertArray: function(assert){
         var me = this;
         // insert at the middle
         (function(){
             var a1 = ['a','b','c'];
             var a2 = ['x','y','z'];
             CR.Array.insertArray(a1, a2, 1);
-            me.arrayCompare('middle: inserted array '+a2, a2, ['x','y','z']);
-            me.arrayCompare('middle: target array '+a1, a1, ['a','x','y','z','b','c']);
+            assert.deepEqual(a2, ['x','y','z'], 'middle: inserted array '+a2);
+            assert.deepEqual(a1, ['a','x','y','z','b','c'], 'middle: target array '+a1);
         }());
         // insert at the begin
         (function(){
             var a1 = ['a','b','c'];
             var a2 = ['x','y','z'];
             CR.Array.insertArray(a1, a2, 0);
-            me.arrayCompare('begin: inserted array '+a2, a2, ['x','y','z']);
-            me.arrayCompare('begin: target array '+a1, a1, ['x','y','z','a','b','c']);
+            assert.deepEqual(a2, ['x','y','z'], 'begin: inserted array '+a2);
+            assert.deepEqual(a1, ['x','y','z','a','b','c'], 'begin: target array '+a1);
         }());
         // insert at the end
         (function(){
             var a1 = ['a','b','c'];
             var a2 = ['x','y','z'];
             CR.Array.insertArray(a1, a2, 3);
-            me.arrayCompare('end: inserted array '+a2, a2, ['x','y','z']);
-            me.arrayCompare('end: target array '+a1, a1, ['a','b','c','x','y','z']);
+            assert.deepEqual(a2, ['x','y','z'], 'end: inserted array '+a2);
+            assert.deepEqual(a1, ['a','b','c','x','y','z'], 'end: target array '+a1);
         }());
         // insert at the exceeding index
         (function(){
             var a1 = ['a','b','c'];
             var a2 = ['x','y','z'];
             CR.Array.insertArray(a1, a2, 8);
-            me.arrayCompare('end: inserted array '+a2, a2, ['x','y','z']);
-            me.arrayCompare('end: target array '+a1, a1, ['a','b','c','x','y','z']);
+            assert.deepEqual(a2, ['x','y','z'], 'end: inserted array '+a2);
+            assert.deepEqual(a1, ['a','b','c','x','y','z'], 'end: target array '+a1);
         }());
         // the index is not specified
         (function(){
             var a1 = ['a','b','c'];
             var a2 = ['x','y','z'];
             CR.Array.insertArray(a1, a2);
-            me.arrayCompare('end: inserted array '+a2, a2, ['x','y','z']);
-            me.arrayCompare('end: target array '+a1, a1, ['a','b','c','x','y','z']);
+            assert.deepEqual(a2, ['x','y','z'], 'end: inserted array '+a2);
+            assert.deepEqual(a1, ['a','b','c','x','y','z'], 'end: target array '+a1);
         }());
     },
-    testIsUnique: function(){
+    testIsUnique: function(assert){
         var unique = ['a', 'b', 'c'];
-        this.assertTrue('unique', CR.Array.isUnique(unique));
+        assert.ok(CR.Array.isUnique(unique), 'unique');
         var notUnique = ['a', 'b', 'c', 'a'];
-        this.assertFalse('unique', CR.Array.isUnique(notUnique));
+        assert.ok(CR.Array.isUnique(notUnique) === false, 'not unique');
     },
-    testCompare: function(){
-        var me = this;
+    testCompare: function(assert){
         // identical arrays
         (function(){
             var a1 = ['a','b','c'];
             var a2 = ['a','b','c'];
-            me.assertTrue('identical', CR.Array.compare(a1, a2));
+            assert.ok(CR.Array.compare(a1, a2), 'identical');
         }());
+		
         // non-identical arrays (same length)
         (function(){
             var a1 = ['a','b','c'];
             var a2 = ['a','b','d'];
-            me.assertFalse('non-identical (same length)', CR.Array.compare(a1, a2));
+            assert.ok(CR.Array.compare(a1, a2) === false, 'non-identical (same length)');
         }());
-        // non-identical arrays (different length)
+        
+		// non-identical arrays (different length)
         (function(){
             var a1 = ['a','b','c'];
             var a2 = ['a','b'];
-            me.assertFalse('non-identical (different length)', CR.Array.compare(a1, a2));
+            assert.ok(CR.Array.compare(a1, a2) === false, 'non-identical (different length)');
         }());
-    },
-    testIndexOf: function(){
-        
-    },
-    testFromMap: function(){
-        
     }
+//    testIndexOf: function(){
+//        
+//    },
+//    testFromMap: function(){
+//        
+//    }
 });
 

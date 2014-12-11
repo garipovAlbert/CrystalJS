@@ -1,13 +1,13 @@
 /**
- * @requires CR.dev.AbstractUnitTest
+ * @requires CR.dev.AbstractQUnitTest
  */
 
 /**
  * @class CR.tests.Object
  */
-CR.define('CR.tests.ObjectTest', 'CR.dev.AbstractUnitTest', {
-    _name: 'CR_Object',
-    testParent: function(){
+CR.define('CR.tests.ObjectTest', 'CR.dev.AbstractQUnitTest', {
+    _name: 'CR.Object',
+    testParent: function(assert){
         var g, d, s;
         CR.define('Granddad', 'CR.Object', {
             method1: function(){
@@ -42,16 +42,16 @@ CR.define('CR.tests.ObjectTest', 'CR.dev.AbstractUnitTest', {
         g = new Granddad();
         d = new Dad();
         s = new Son();
-        this.assertTrue('parent call: near inh. Granddad>Dad', d.method1() === 1);
-        this.assertTrue('parent call: far inh. Granddad>...>Son', s.method2() === 2);
-        this.assertTrue('parent call: pass arguments', d.method3(5) === 6);
+        assert.ok(d.method1() === 1, 'parent call: near inh. Granddad>Dad');
+        assert.ok(s.method2() === 2, 'parent call: far inh. Granddad>...>Son');
+        assert.ok(d.method3(5) === 6, 'parent call: pass arguments');
     },
-    testGetClass: function(){
+    testGetClass: function(assert){
         CR.define('Test.MyClass', 'CR.Object', {});
         var object = new Test.MyClass();
         var Class = object.getClass();
-        this.assertTrue('object.getClass()', Class === Test.MyClass);
+        assert.ok(Class === Test.MyClass, 'object.getClass()');
         var className = Class.getName();
-        this.assertTrue('Class.getName()', className === 'Test.MyClass');
+        assert.ok(className === 'Test.MyClass', 'Class.getName()');
     }
 });
