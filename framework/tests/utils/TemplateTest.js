@@ -10,18 +10,18 @@ CR.define('CR.tests.utils.TemplateTest', 'CR.dev.AbstractQUnitTest', {
 	_name: 'CR.utils.Template',
 	testApply: function (assert) {
 		var tplStr1 =
-				'<$ for(var k in list){ $>' +
-				'[<$=k$>:<$=list[k]$>]' +
-				'<$ } $>';
+			'<$ for(var k in list){ $>' +
+			'[<$=k$>:<$=list[k]$>]' +
+			'<$ } $>';
 		var tplStr2 =
-				'<$ ' +
-				'var res = "";' +
-				'for(var k in list){ ' +
-				'	res += (", "+k+": "+list[k]);' +
-				'}' +
-				'res = res.substring(2);' +
-				'$>' +
-				'{<$=res$>}';
+			'<$ ' +
+			'var res = "";' +
+			'for(var k in list){ ' +
+			'	res += (", "+k+": "+list[k]);' +
+			'}' +
+			'res = res.substring(2);' +
+			'$>' +
+			'{<$=res$>}';
 		var values = {
 			list: {
 				one: 1,

@@ -39,7 +39,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
 			assert.ok(rgb[1] === 128, 'b');
 			assert.ok(rgb[2] === 30, 'g');
 		})();
-		
+
 		// rgbF
 		(function () {
 			var c, rgb;
@@ -50,7 +50,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
 			assert.ok(rgb[1] === 128, 'b (rgbF)');
 			assert.ok(rgb[2] === 1020, 'g (rgbF)');
 		})();
-		
+
 		// out of bounds
 		(function () {
 			var c, rgb;
@@ -77,7 +77,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
 			assert.ok(rgb[1] === 128, 'b');
 			assert.ok(rgb[2] === 30, 'g');
 		})();
-		
+
 		// out of bounds
 		(function () {
 			var c, rgb;
@@ -138,7 +138,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
 			assert.ok(hsv[1] === 0, 's (white)');
 			assert.ok(hsv[2] === 100, 'v (white)');
 		})();
-		
+
 		// out of bounds
 		(function () {
 			var c, hsv;
@@ -186,7 +186,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
 			assert.ok(rgb[1] === 128, 'g (2)');
 			assert.ok(rgb[2] === 128, 'b (2)');
 		})();
-		
+
 		// hue out of bounds
 		(function () {
 			var c, rgb;
@@ -215,7 +215,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
 			assert.ok(rgb[1] === 128, 'g (2)');
 			assert.ok(rgb[2] === 128, 'b (2)');
 		})();
-		
+
 		// hue out of bounds
 		(function () {
 			var c, rgb;
@@ -284,7 +284,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
 			assert.ok(rgb[1] === 3, 'g (3)');
 			assert.ok(rgb[2] === 0, 'b (3)');
 		})();
-		
+
 		// hue out of bounds
 		(function () {
 			var c, rgb;

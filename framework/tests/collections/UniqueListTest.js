@@ -12,13 +12,13 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
 		return CR.collections.UniqueList;
 	},
 	testGet: function (assert) {
-		this.parent(assert);
+		this.super(assert);
 	},
 	testGetSize: function (assert) {
-		this.parent(assert);
+		this.super(assert);
 	},
 	testAdd: function (assert) {
-		this.parent(assert);
+		this.super(assert);
 
 		var cls = this._getClass_();
 		// re-adding
@@ -35,16 +35,16 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
 		// common
 		(function () {
 			var list, addedList, o0, o1, o2,
-					preset = function () {
-						list = new cls(Array);
-						o0 = new Array();
-						list.add(o0);
-						addedList = new cls(Array);
-						o1 = new Array();
-						o2 = new Array();
-						addedList.add(o1);
-						addedList.add(o2);
-					};
+				preset = function () {
+					list = new cls(Array);
+					o0 = new Array();
+					list.add(o0);
+					addedList = new cls(Array);
+					o1 = new Array();
+					o2 = new Array();
+					addedList.add(o1);
+					addedList.add(o2);
+				};
 			// add to end
 			preset();
 			list.addList(addedList);
@@ -89,7 +89,7 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
 		}());
 	},
 	testAddArray: function (assert) {
-		this.parent(assert);
+		this.super(assert);
 
 		var cls = this._getClass_();
 
@@ -124,7 +124,7 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
 		assert.ok(list.indexOf(o1) === 1);
 	},
 	testSet: function (assert) {
-		this.parent(assert);
+		this.super(assert);
 
 		var cls = this._getClass_();
 
@@ -164,19 +164,19 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
 		assert.ok(list.getSize() === 2, 'remove nothing');
 	},
 	testRemoveAt: function (assert) {
-		this.parent(assert);
+		this.super(assert);
 	},
 	testToArray: function (assert) {
-		this.parent(assert);
+		this.super(assert);
 	},
 	testClear: function (assert) {
-		this.parent(assert);
+		this.super(assert);
 	},
 	testClone: function (assert) {
-		this.parent(assert);
+		this.super(assert);
 	},
 	test_chainable: function (assert) {
-		this.parent(assert);
+		this.super(assert);
 
 		var cls = this._getClass_();
 		var uList = new cls();

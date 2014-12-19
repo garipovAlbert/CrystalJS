@@ -32,7 +32,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
 	},
 	testGetSize: function (assert) {
 		var me = this, cls = this._getClass_(),
-				list = new cls();
+			list = new cls();
 		list.add(0);
 		list.add(1);
 		assert.ok(list.getSize() === 2);
@@ -79,17 +79,17 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
 	},
 	testAddList: function (assert) {
 		var list, addedList, o0, o1, o2,
-				cls = this._getClass_(),
-				preset = function () {
-					list = new cls(Array);
-					o0 = new Array();
-					list.add(o0);
-					addedList = new cls(Array);
-					o1 = new Array();
-					o2 = new Array();
-					addedList.add(o1);
-					addedList.add(o2);
-				};
+			cls = this._getClass_(),
+			preset = function () {
+				list = new cls(Array);
+				o0 = new Array();
+				list.add(o0);
+				addedList = new cls(Array);
+				o1 = new Array();
+				o2 = new Array();
+				addedList.add(o1);
+				addedList.add(o2);
+			};
 
 		// add to end
 		preset();
@@ -113,15 +113,15 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
 	},
 	testAddArray: function (assert) {
 		var list, array, o0, o1, o2,
-				cls = this._getClass_(),
-				preset = function () {
-					list = new cls(Object);
-					o0 = new Object();
-					list.add(o0);
-					o1 = new Object();
-					o2 = new Object();
-					array = [o1, o2];
-				};
+			cls = this._getClass_(),
+			preset = function () {
+				list = new cls(Object);
+				o0 = new Object();
+				list.add(o0);
+				o1 = new Object();
+				o2 = new Object();
+				array = [o1, o2];
+			};
 
 		//add to end
 		preset();
@@ -169,13 +169,13 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
 	},
 	testSet: function (assert) {
 		var list, o0, o1,
-				cls = this._getClass_(),
-				preset = function () {
-					list = new cls(Object);
-					o0 = new Object();
-					o1 = new Object();
-					list.add(o0);
-				};
+			cls = this._getClass_(),
+			preset = function () {
+				list = new cls(Object);
+				o0 = new Object();
+				o1 = new Object();
+				list.add(o0);
+			};
 		preset();
 		list.set(0, o1);
 		assert.ok(list.get(0) === o1);
@@ -238,8 +238,8 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
 	},
 	testToArray: function (assert) {
 		var me = this, array,
-				cls = this._getClass_(),
-				list = new cls('number');
+			cls = this._getClass_(),
+			list = new cls('number');
 		list.add(0);
 		list.add(1);
 		array = list.toArray();
