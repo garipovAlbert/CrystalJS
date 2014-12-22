@@ -99,7 +99,7 @@ CR.define('CR.Component', 'CR.Object', {
 		}
 		// set global identifier
 		if (me._cfg.id !== null) {
-			this._cls._idValuePairs_[me._cfg.id] = this;
+			this.Class._idValuePairs_[me._cfg.id] = this;
 		}
 	},
 	_getEventHandlerArray_: function (n) {

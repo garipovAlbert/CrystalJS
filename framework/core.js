@@ -2,7 +2,7 @@
  * The global object (namespace) encapsulates all classes, functions 
  * provided by CrystalJS framework.
  */
-var CR = {
+CR = {
 	/**
 	 * Creates global objects (namespaces) to be used for containing classes, 
 	 * functions and data so that they are not global. 
@@ -150,7 +150,7 @@ var CR = {
 		}
 
 		// set class property
-		cp._cls = Class;
+		cp.Class = Class;
 		Class.getName = function () {
 			return n;
 		};
@@ -352,7 +352,7 @@ CR.define('CR.Object', 'Object', {
 	 * @return {class}
 	 */
 	getClass: function () {
-		return this._cls;
+		return this.Class;
 	}
 });
 

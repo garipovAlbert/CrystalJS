@@ -25,7 +25,7 @@ CR.define('CR.dev.AbstractQUnitTest', 'CR.Object', {
 
 		me._tests_ = {};
 		for (method in me) {
-			if (typeof (me[method]) === 'function' && method.indexOf('test') === 0) {
+			if (typeof (me[method]) === 'function' && method.indexOf('test') === 0 && method.length > 4) {
 				name = method.substr(4);
 				name = CR.String.uncap(name);
 				me._tests_[name] = me[method];

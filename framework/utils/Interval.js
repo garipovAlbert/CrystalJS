@@ -124,7 +124,7 @@ CR.define('CR.utils.Interval', 'CR.Component', {
 	 * @return {string}
 	 */
 	toString: function () {
-		return '{' + this._cls.getName() + '('
+		return '{' + this.Class.getName() + '('
 			+ ((this._started === true) ? 'started' : 'stopped')
 			+ ')' + '}';
 	}

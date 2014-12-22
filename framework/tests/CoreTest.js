@@ -205,7 +205,7 @@ CR.define('CR.tests.CoreTest', 'CR.dev.AbstractQUnitTest', {
 					v2: 2
 				},
 				inner: function (k) {
-					return this._cls[k];
+					return this.Class[k];
 				}
 			});
 			CR.define('Dad', 'Granddad', {

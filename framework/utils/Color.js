@@ -290,8 +290,8 @@ CR.define('CR.utils.Color', 'CR.Object', {
 	 */
 	setHtml: function (hex) {
 		var r, g, b;
-		if (this._cls.webColors[hex] !== undefined) {
-			var wc = this._cls.webColors[hex];
+		if (this.Class.webColors[hex] !== undefined) {
+			var wc = this.Class.webColors[hex];
 			r = wc[0];
 			g = wc[1];
 			b = wc[2];
