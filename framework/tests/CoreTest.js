@@ -7,9 +7,9 @@
  */
 CR.define('CR.tests.CoreTest', 'CR.dev.AbstractQUnitTest', {
     _name: 'CR.core',
-    testNs: function (assert) {
+    'test ns()': function (assert) {
         // check equality
-        ns = CR.ns('My.yet.another.namespace');
+        var ns = CR.ns('My.yet.another.namespace');
         assert.ok(My.yet.another.namespace === ns, 'check equality');
 
         // check invariability
@@ -19,7 +19,7 @@ CR.define('CR.tests.CoreTest', 'CR.dev.AbstractQUnitTest', {
 //	testCheckType: function (assert) {
 //		// no need to check efficiency of this function because of it's simplicity.
 //	},
-    testPut: function (assert) {
+    'test put()': function (assert) {
         var result;
         var o1 = {
             a: 1,
@@ -56,7 +56,7 @@ CR.define('CR.tests.CoreTest', 'CR.dev.AbstractQUnitTest', {
             d: 5
         }, 'three objects: check values of result');
     },
-    testDefine: function (assert) {
+    'test define()': function (assert) {
 
         // create a class
         (function () {
@@ -244,7 +244,7 @@ CR.define('CR.tests.CoreTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(Son.v3 === 5, 'static: s v3 outer');
         })();
     },
-    testGetClass: function (assert) {
+    'test getClass()': function (assert) {
         // common
         (function () {
             var cls;

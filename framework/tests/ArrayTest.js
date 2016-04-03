@@ -7,8 +7,7 @@
  */
 CR.define('CR.tests.ArrayTest', 'CR.dev.AbstractQUnitTest', {
     _name: 'CR.Array',
-    testInsert: function (assert) {
-        var me = this;
+    'test insert()': function (assert) {
         // insert at the middle
         (function () {
             var a = ['a', 'b', 'c'];
@@ -40,7 +39,7 @@ CR.define('CR.tests.ArrayTest', 'CR.dev.AbstractQUnitTest', {
             assert.deepEqual(a, ['a', 'b', 'c', 'x'], 'middle: target array ' + a);
         }());
     },
-    testInsertArray: function (assert) {
+    'test insertArray()': function (assert) {
         var me = this;
         // insert at the middle
         (function () {
@@ -83,13 +82,13 @@ CR.define('CR.tests.ArrayTest', 'CR.dev.AbstractQUnitTest', {
             assert.deepEqual(a1, ['a', 'b', 'c', 'x', 'y', 'z'], 'end: target array ' + a1);
         }());
     },
-    testIsUnique: function (assert) {
+    'test isUnique()': function (assert) {
         var unique = ['a', 'b', 'c'];
         assert.ok(CR.Array.isUnique(unique), 'unique');
         var notUnique = ['a', 'b', 'c', 'a'];
         assert.ok(CR.Array.isUnique(notUnique) === false, 'not unique');
     },
-    testCompare: function (assert) {
+    'test compare()': function (assert) {
         // identical arrays
         (function () {
             var a1 = ['a', 'b', 'c'];

@@ -11,7 +11,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
     _getClass_: function (assert) {
         return CR.collections.List;
     },
-    testGet: function (assert) {
+    'test get()': function (assert) {
         var cls = this._getClass_(), list;
         // non-typed list
         list = new cls;
@@ -30,14 +30,14 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
         list.add(a);
         assert.strictEqual(list.get(0), a, 'value check (typed list)');
     },
-    testGetSize: function (assert) {
+    'test getSize()': function (assert) {
         var me = this, cls = this._getClass_(),
             list = new cls();
         list.add(0);
         list.add(1);
         assert.ok(list.getSize() === 2);
     },
-    testAdd: function (assert) {
+    'test add()': function (assert) {
         var cls = this._getClass_(), list;
 
         // type check (simple type)
@@ -77,7 +77,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
             list.add('three', 'hi!');
         }, CR.RangeError, 'index out of range (NaN)');
     },
-    testAddList: function (assert) {
+    'test addList()': function (assert) {
         var list, addedList, o0, o1, o2,
             cls = this._getClass_(),
             preset = function () {
@@ -111,7 +111,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
             list.addList(list, 40);
         }, CR.RangeError, 'index is out of range');
     },
-    testAddArray: function (assert) {
+    'test addArray()': function (assert) {
         var list, array, o0, o1, o2,
             cls = this._getClass_(),
             preset = function () {
@@ -155,7 +155,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
             list.addArray(array, 40);
         }, CR.RangeError, 'index is out of range');
     },
-    testIndexOf: function (assert) {
+    'test indexOf()': function (assert) {
         var cls = this._getClass_();
         var list = new cls(Object);
         var o0 = new Object();
@@ -167,7 +167,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
         assert.ok(list.indexOf(o0) === 0);
         assert.ok(list.indexOf(o1) === 1);
     },
-    testSet: function (assert) {
+    'test set()': function (assert) {
         var list, o0, o1,
             cls = this._getClass_(),
             preset = function () {
@@ -192,7 +192,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
             list.set(0, undefined);
         }, CR.Error, 'undefined value');
     },
-    testRemove: function (assert) {
+    'test remove()': function (assert) {
         var list, o0, o1, o2;
         var cls = this._getClass_();
         var preset = function () {
@@ -217,7 +217,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
         list.remove(o2);
         assert.ok(list.getSize() === 3, 'remove nothing');
     },
-    testRemoveAt: function (assert) {
+    'test removeAt()': function (assert) {
         var list, o0, o1;
         var cls = this._getClass_();
         var preset = function () {
@@ -236,7 +236,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
             list.removeAt(2);
         }, CR.RangeError, 'out of range');
     },
-    testToArray: function (assert) {
+    'test toArray()': function (assert) {
         var me = this, array,
             cls = this._getClass_(),
             list = new cls('number');
@@ -247,7 +247,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
         assert.ok(array[0] === 0);
         assert.ok(array[1] === 1);
     },
-    testClear: function (assert) {
+    'test clear()': function (assert) {
         var cls = this._getClass_();
         var list = new cls('number');
         list.add(0);
@@ -256,7 +256,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
         list.clear();
         assert.ok(list.getSize() === 0);
     },
-    testClone: function (assert) {
+    'test clone()': function (assert) {
         var cls = this._getClass_();
         var list = new cls();
         var three = [];
@@ -274,7 +274,7 @@ CR.define('CR.tests.collections.ListTest', 'CR.dev.AbstractQUnitTest', {
         clone.set(2, []);
         assert.ok(list.get(2) === three, 'after change');
     },
-    test_chainable: function (assert) {
+    'test Method chaining': function (assert) {
         var cls = this._getClass_();
         var list = new cls();
         assert.ok(list.add(1) === list, 'add()');

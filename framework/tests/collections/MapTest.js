@@ -8,7 +8,7 @@
  */
 CR.define('CR.tests.collections.MapTest', 'CR.dev.AbstractQUnitTest', {
     _name: 'CR.collections.Map',
-    testGet: function (assert) {
+    'test get()': function (assert) {
         var map, typedMap, k1, o1, k2, o2;
 
         // non-typed map
@@ -30,7 +30,7 @@ CR.define('CR.tests.collections.MapTest', 'CR.dev.AbstractQUnitTest', {
         typedMap.put(o1, o2);
         assert.ok(typedMap.get(o1) === o2, 'value (typed map)');
     },
-    testPut: function (assert) {
+    'test put()': function (assert) {
         // type check (non-typed)
         (function () {
             var map = new CR.collections.Map();
@@ -91,13 +91,13 @@ CR.define('CR.tests.collections.MapTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(map.get('string') === a1, 'rewriting values');
         }());
     },
-    testHasKey: function (assert) {
+    'test hasKey()': function (assert) {
         var map = new CR.collections.Map();
         map.put('key', new Object());
         assert.ok(map.hasKey('key'), 'existing key');
         assert.ok(map.hasKey('another key') === false, 'not existing key');
     },
-    testRemove: function (assert) {
+    'test remove()': function (assert) {
         var map = new CR.collections.Map(Array, 'string');
         var a0 = [];
         var a1 = [];
@@ -112,7 +112,7 @@ CR.define('CR.tests.collections.MapTest', 'CR.dev.AbstractQUnitTest', {
         map.remove(a1);
         assert.ok(map.getSize() === 0);
     },
-    testRemoveKey: function (assert) {
+    'test removeKey()': function (assert) {
         var map = new CR.collections.Map(Array, 'string');
         var a0 = [];
         var a1 = [];
@@ -128,7 +128,7 @@ CR.define('CR.tests.collections.MapTest', 'CR.dev.AbstractQUnitTest', {
             map.removeKey('four');
         }, CR.Error, 'key not exists');
     },
-    testGetKeys: function (assert) {
+    'test getKeys()': function (assert) {
         var keys;
         var map = new CR.collections.Map(Array, 'string');
         var a0 = [];
@@ -146,7 +146,7 @@ CR.define('CR.tests.collections.MapTest', 'CR.dev.AbstractQUnitTest', {
         assert.ok(keys[0] === 'two', 'after remove');
         assert.ok(keys.length === 1, 'length after remove');
     },
-    testPutObject: function (assert) {
+    'test putObject()': function (assert) {
         // common
         (function () {
             var map = new CR.collections.Map('string', 'string');
@@ -238,7 +238,7 @@ CR.define('CR.tests.collections.MapTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(map.getSize() === 3, 'undefined values (size)');
         }());
     },
-    testPutMap: function (assert) {
+    'test putMap()': function (assert) {
         // common
         (function () {
             var map = new CR.collections.Map('string', 'string');
@@ -311,7 +311,7 @@ CR.define('CR.tests.collections.MapTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(map.getSize() === 3, 'rewrite values (size)');
         }());
     },
-    testClone: function (assert) {
+    'test clone()': function (assert) {
         var map = new CR.collections.Map();
         var three = [];
         var o = {};
@@ -329,7 +329,7 @@ CR.define('CR.tests.collections.MapTest', 'CR.dev.AbstractQUnitTest', {
         clone.put(three, 3);
         assert.ok(map.get(three) === o, 'after change');
     },
-    test_chainable: function (assert) {
+    'test Method chaining': function (assert) {
         var map = new CR.collections.Map();
         assert.ok(map.put(1, 1) === map, 'put()');
         assert.ok(map.putObject({2: 2}) === map, 'putObject()');

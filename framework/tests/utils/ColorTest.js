@@ -8,7 +8,7 @@
  */
 CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
     _name: 'CR.utils.Color',
-    testSetGetRgbF: function (assert) {
+    'test setGetRgbF()': function (assert) {
         var c, rgbF;
 
         c = new CR.utils.Color();
@@ -18,7 +18,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
         assert.ok(rgbF[1] === 1, 'b');
         assert.ok(rgbF[2] === 4, 'g');
     },
-    testSetRgbFArray: function (assert) {
+    'test setRgbFArray()': function (assert) {
         var c, rgbF;
 
         c = new CR.utils.Color();
@@ -28,7 +28,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
         assert.ok(rgbF[1] === 1, 'b');
         assert.ok(rgbF[2] === 4, 'g');
     },
-    testSetGetRgb: function (assert) {
+    'test setGetRgb()': function (assert) {
         // common
         (function () {
             var c, rgb;
@@ -66,7 +66,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(rgb[2] === 300, 'b (out of bounds, unbounded, positive)');
         })();
     },
-    testSetRgbArray: function (assert) {
+    'test setRgbArray()': function (assert) {
         // common
         (function () {
             var c, rgb;
@@ -93,7 +93,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(rgb[2] === 300, 'b (out of bounds, unbounded, positive)');
         })();
     },
-    testGetRgbF: function (assert) {
+    'test getRgbF()': function (assert) {
         (function () {
             var c, rgbF;
             c = new CR.utils.Color();
@@ -104,7 +104,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(rgbF[2] === 1, 'g');
         }());
     },
-    testGetHsvF: function (assert) {
+    'test getHsvF()': function (assert) {
         (function () {
             var c, hsvF;
             c = new CR.utils.Color();
@@ -121,7 +121,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(hsvF[2] === 1, 'v (white)');
         }());
     },
-    testGetHsv: function (assert) {
+    'test getHsv()': function (assert) {
         // common
         (function () {
             var c, hsv;
@@ -156,7 +156,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(hsv[2] === 314, 'b (out of bounds, unbounded)');
         })();
     },
-    testGetHtml: function (assert) {
+    'test getHtml()': function (assert) {
         (function () {
             var c, html;
             c = new CR.utils.Color();
@@ -169,7 +169,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(html === '0000ff', 'html (out of bounds)');
         })();
     },
-    testSetHsvF: function (assert) {
+    'test setHsvF()': function (assert) {
         (function () {
             var c, rgb;
             c = new CR.utils.Color();
@@ -198,7 +198,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(rgb[2] === 64, 'b (hue out of bounds)');
         })();
     },
-    testSetHsvFArray: function (assert) {
+    'test setHsvFArray()': function (assert) {
         (function () {
             var c, rgb;
             c = new CR.utils.Color();
@@ -227,7 +227,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(rgb[2] === 64, 'b (hue out of bounds)');
         })();
     },
-    testSetHsv: function (assert) {
+    'test setHsv()': function (assert) {
         (function () {
             var c, rgb;
             c = new CR.utils.Color();
@@ -261,7 +261,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(rgb[2] === 0, 'b (hue out of bounds)');
         })();
     },
-    testSetHsvArray: function (assert) {
+    'test setHsvArray()': function (assert) {
         (function () {
             var c, rgb;
             c = new CR.utils.Color();
@@ -296,7 +296,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(rgb[2] === 0, 'b (if hue out of bounds)');
         })();
     },
-    testSetHtml: function (assert) {
+    'test setHtml()': function (assert) {
         (function () {
             var c, rgb;
             c = new CR.utils.Color();
@@ -332,7 +332,7 @@ CR.define('CR.tests.utils.ColorTest', 'CR.dev.AbstractQUnitTest', {
             assert.ok(rgb[2] === 34, 'b (shorthand)');
         })();
     },
-    test_chainable: function (assert) {
+    'test Method chaining': function (assert) {
         (function () {
             var c = new CR.utils.Color();
             assert.ok(c.setRgbF(1, 1, 1) === c, 'setRgbF()');

@@ -13,8 +13,8 @@ CR = {
      * @return {Object} The namespace object.
      */
     ns: function (ns) {
-        var i, parts, obj;
-        parts = ns.split('.'),
+        var i,
+            parts = ns.split('.'),
             obj = window[parts[0]] = window[parts[0]] || {};
         parts = parts.slice(1);
         for (i = 0; i < parts.length; i++) {
@@ -136,7 +136,7 @@ CR = {
         // retrieve class system directives
         dirs = {};
         for (k in cp) {
-            if (k.substr(0, 2) == '__') {
+            if (k.substr(0, 2) === '__') {
                 dirs[k] = cp[k];
             }
         }
@@ -324,7 +324,7 @@ CR = {
             return new Array(times + 1).join(s);
         }
     }
-}
+};
 
 /**
  * @class CR.Object

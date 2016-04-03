@@ -7,7 +7,7 @@
  */
 CR.define('CR.tests.ObjectTest', 'CR.dev.AbstractQUnitTest', {
     _name: 'CR.Object',
-    testSuper: function (assert) {
+    'test super()': function (assert) {
         var g, d, s;
         CR.define('Granddad', 'CR.Object', {
             method1: function () {
@@ -46,7 +46,7 @@ CR.define('CR.tests.ObjectTest', 'CR.dev.AbstractQUnitTest', {
         assert.ok(s.method2() === 2, 'parent call: far inh. Granddad>...>Son');
         assert.ok(d.method3(5) === 6, 'parent call: pass arguments');
     },
-    testGetClass: function (assert) {
+    'test getClass()': function (assert) {
         CR.define('Test.MyClass', 'CR.Object', {});
         var object = new Test.MyClass();
         var Class = object.getClass();

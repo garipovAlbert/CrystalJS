@@ -7,15 +7,15 @@
  */
 CR.define('CR.tests.StringTest', 'CR.dev.AbstractQUnitTest', {
     _name: 'CR.String',
-    testCap: function (assert) {
+    'test cap()': function (assert) {
         var capitalized = CR.String.cap('myString');
         assert.ok(capitalized === 'MyString');
     },
-    testUnCap: function (assert) {
+    'test uncap()': function (assert) {
         var capitalized = CR.String.uncap('MyString');
         assert.ok(capitalized === 'myString');
     },
-    testRepeat: function (assert) {
+    'test repeat()': function (assert) {
         var repeated;
         repeated = CR.String.repeat('qw', 3);
         assert.ok(repeated === 'qwqwqw', '3 times');

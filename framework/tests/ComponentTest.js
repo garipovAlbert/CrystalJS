@@ -8,7 +8,7 @@
  */
 CR.define('CR.tests.ComponentTest', 'CR.dev.AbstractQUnitTest', {
     _name: 'CR.Component',
-    test_configuration: function (assert) {
+    'test Configuration': function (assert) {
         // common
         (function () {
             CR.define('MyComponent', 'CR.Component', {
@@ -66,16 +66,12 @@ CR.define('CR.tests.ComponentTest', 'CR.dev.AbstractQUnitTest', {
             }, CR.Error, 'required config parameter error');
         })();
     },
-    test_eventHandlersInit: function (assert) {
+    'test Init event handlers': function (assert) {
         // common
         (function () {
-            var k;
-            var oneHandler = function () {
-            };
-            var twoHandler1 = function () {
-            };
-            var twoHandler2 = function () {
-            };
+            var oneHandler = function () {};
+            var twoHandler1 = function () {};
+            var twoHandler2 = function () {};
             CR.define('MyComponent', 'CR.Component', {
                 _events: ['onOne']
             });
@@ -130,7 +126,7 @@ CR.define('CR.tests.ComponentTest', 'CR.dev.AbstractQUnitTest', {
 //    testGetEventHandlers: function(assert){
 //    // tested in test_eventHandlersInit() (common)
 //    },
-    testHasEvent: function (assert) {
+    'test hasEvent()': function (assert) {
         CR.define('MyComponent', 'CR.Component', {
             _events: ['onEvent']
         });
@@ -138,7 +134,7 @@ CR.define('CR.tests.ComponentTest', 'CR.dev.AbstractQUnitTest', {
         assert.ok(c.hasEvent('onEvent'), 'has');
         assert.ok(c.hasEvent('undefinedEvent') === false, 'has not');
     },
-    testAddEventHandler: function (assert) {
+    'test addEventHandler()': function (assert) {
         // common
         (function () {
             CR.define('MyComponent', 'CR.Component', {
@@ -188,7 +184,7 @@ CR.define('CR.tests.ComponentTest', 'CR.dev.AbstractQUnitTest', {
             }, CR.TypeError, 'not a function error');
         })();
     },
-    testRemoveEventHandler: function (assert) {
+    'test removeEventHandler()': function (assert) {
         CR.define('MyComponent', 'CR.Component', {
             _events: ['onEvent']
         });
@@ -204,7 +200,7 @@ CR.define('CR.tests.ComponentTest', 'CR.dev.AbstractQUnitTest', {
         var eventHandlers = c.getEventHandlers('onEvent');
         assert.deepEqual(eventHandlers, [], 'removed');
     },
-    testRaiseEvent: function (assert) {
+    'test raiseEvent()': function (assert) {
         var status1, status2;
         CR.define('MyComponent', 'CR.Component', {
             _events: ['onEvent']
@@ -226,8 +222,7 @@ CR.define('CR.tests.ComponentTest', 'CR.dev.AbstractQUnitTest', {
         assert.ok(status1 === 'raised1', 'raised1');
         assert.ok(status2 === 'raised2', 'raised2');
     },
-    testStaticGet: function (assert) {
-        var me = this;
+    'test Static get()': function (assert) {
         CR.define('MyComponent', 'CR.Component', {});
         var id = 'test_MyComponentIdentifier';
         var c = new MyComponent({
@@ -235,8 +230,7 @@ CR.define('CR.tests.ComponentTest', 'CR.dev.AbstractQUnitTest', {
         });
         assert.ok(c === CR.Component.get(id));
     },
-    testStaticCreate: function (assert) {
-        var me = this;
+    'test Static create()': function (assert) {
         CR.define('MyComponent', 'CR.Component', {
             _cfg: {
                 a: null,

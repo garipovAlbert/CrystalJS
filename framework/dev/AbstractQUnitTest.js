@@ -25,10 +25,21 @@ CR.define('CR.dev.AbstractQUnitTest', 'CR.Object', {
 
         me._tests_ = {};
         for (method in me) {
-            if (typeof (me[method]) === 'function' && method.indexOf('test') === 0 && method.length > 4) {
-                name = method.substr(4);
-                name = CR.String.uncap(name);
-                me._tests_[name] = me[method];
+            if (typeof (me[method]) === 'function') {
+                if (method.indexOf('test') === 0 && method !== 'test') {
+                    name = CR.String.uncap(method.substr('test'.length)).trim();
+                    me._tests_[name] = me[method];
+                }
+                if (method.indexOf('asyncTest') === 0 && method !== 'asyncTest') {
+                    name = CR.String.uncap(method.substr('asyncTest'.length)).trim();
+                    me[method].async = true;
+                    me._tests_[name] = me[method];
+                }
+                if (method.indexOf('customTest') === 0 && method !== 'customTest') {
+                    name = CR.String.uncap(method.substr('customTest'.length)).trim();
+                    me[method]['customTest'] = true;
+                    me._tests_[name] = me[method];
+                }
             }
         }
 
@@ -38,23 +49,38 @@ CR.define('CR.dev.AbstractQUnitTest', 'CR.Object', {
     },
     run: function () {
         var me = this;
-        QUnit.module(this._name);
+        QUnit.module(this._name, {
+            'setup': function () {
+                me._before();
+            },
+            'teardown': function () {
+                me._after();
+            }
+        });
         for (var testName in me._tests_) {
             (function (testName) {
-                QUnit.test(testName, function (assert) {
-                    me._tests_[testName].apply(me, [assert]);
-                });
+                if (me._tests_[testName].async) {
+                    QUnit.asyncTest(testName, function (assert) {
+                        me._tests_[testName].call(me, assert, testName);
+                    });
+                } else if (me._tests_[testName].customTest) {
+                    me._tests_[testName].call(me, testName);
+                } else {
+                    QUnit.test(testName, function (assert) {
+                        me._tests_[testName].call(me, assert, testName);
+                    });
+                }
             }(testName));
         }
     },
     /**
-     * This method is called before running the tests.
+     * Runs before each test.
      * Override it at your discretion.
      */
     _before: function () {
     },
     /**
-     * This method is called after running the tests.
+     * Runs after each test.
      * Override it at your discretion.
      */
     _after: function () {

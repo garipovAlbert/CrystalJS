@@ -8,7 +8,7 @@
  */
 CR.define('CR.tests.utils.TemplateTest', 'CR.dev.AbstractQUnitTest', {
     _name: 'CR.utils.Template',
-    testApply: function (assert) {
+    'test apply()': function (assert) {
         var tplStr1 =
             '<$ for(var k in list){ $>' +
             '[<$=k$>:<$=list[k]$>]' +

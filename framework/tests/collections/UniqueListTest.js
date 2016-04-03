@@ -11,13 +11,13 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
     _getClass_: function (assert) {
         return CR.collections.UniqueList;
     },
-    testGet: function (assert) {
+    'test get()': function (assert) {
         this.super(assert);
     },
-    testGetSize: function (assert) {
+    'test getSize()': function (assert) {
         this.super(assert);
     },
-    testAdd: function (assert) {
+    'test add()': function (assert) {
         this.super(assert);
 
         var cls = this._getClass_();
@@ -29,7 +29,7 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
             uList.add('my not unique string');
         }, CR.Error, 're-adding');
     },
-    testAddList: function (assert) {
+    'test addList()': function (assert) {
         var cls = this._getClass_();
 
         // common
@@ -88,7 +88,7 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
             }, 'repetition in the added');
         }());
     },
-    testAddArray: function (assert) {
+    'test addArray()': function (assert) {
         this.super(assert);
 
         var cls = this._getClass_();
@@ -113,7 +113,7 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
             }, CR.Error, 'repetition in added');
         }());
     },
-    testIndexOf: function (assert) {
+    'test indexOf()': function (assert) {
         var cls = this._getClass_();
         var list = new cls(Object);
         var o0 = new Object();
@@ -123,7 +123,7 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
         assert.ok(list.indexOf(o0) === 0);
         assert.ok(list.indexOf(o1) === 1);
     },
-    testSet: function (assert) {
+    'test set()': function (assert) {
         this.super(assert);
 
         var cls = this._getClass_();
@@ -144,7 +144,7 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
             }, CR.Error, 'repetition on same');
         }());
     },
-    testRemove: function (assert) {
+    'test remove()': function (assert) {
         var list, o0, o1, o2;
         var cls = this._getClass_();
         var preset = function () {
@@ -163,19 +163,19 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
         list.remove(o2);
         assert.ok(list.getSize() === 2, 'remove nothing');
     },
-    testRemoveAt: function (assert) {
+    'test removeAt()': function (assert) {
         this.super(assert);
     },
-    testToArray: function (assert) {
+    'test toArray()': function (assert) {
         this.super(assert);
     },
-    testClear: function (assert) {
+    'test clear()': function (assert) {
         this.super(assert);
     },
-    testClone: function (assert) {
+    'test clone()': function (assert) {
         this.super(assert);
     },
-    test_chainable: function (assert) {
+    'test Method chaining': function (assert) {
         this.super(assert);
 
         var cls = this._getClass_();
@@ -183,7 +183,7 @@ CR.define('CR.tests.collections.UniqueListTest', 'CR.tests.collections.ListTest'
         uList.add(1);
         assert.ok(uList.move(1, 0) === uList, 'move()');
     },
-    testMove: function (assert) {
+    'test move()': function (assert) {
         var uList, arr;
         var cls = this._getClass_();
         var preset = function () {
